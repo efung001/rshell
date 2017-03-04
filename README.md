@@ -1,7 +1,7 @@
 # RShell
 
 
- by Edmund Fund and Justin Liu
+ by Edmund Fung and Justin Liu
 
 This program takes a user input as an individual command that will be executed through usr/bin.
 To achieve this, the program takes the user input and parses the input, separating commands and connectors. Once it has initialized its
