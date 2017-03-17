@@ -128,8 +128,28 @@ void testCommand::checkFlags()
 
 void testCommand::getDir() 
 {
-    unsigned n = cmd.find("/");
-    dir = cmd.substr(n); 
+    if (cmd.find("[") < 1000)
+    {
+        cmd = cmd.substr(cmd.find("[") + 2);
+    }
+    if (cmd.find("]") < 1000) 
+    {
+        cmd = cmd.substr(0, cmd.length() - 2); 
+    }
+    string temp = cmd; 
+    unsigned checker = 0; 
+    for (unsigned i = 0; i < temp.length(); ++i) 
+    {
+        if (isspace(temp.at(i)))
+        {
+            ++checker; 
+        }
+    }
+    for (unsigned a = 0; a < checker; ++a) 
+    {
+        temp = temp.substr(temp.find(" ") + 1); 
+    }
+    dir = temp; 
 }
 
 int testCommand::run() 
@@ -246,11 +266,6 @@ minishell::minishell(string a)
                 {
                     createCommands(cmd.substr(i, j - i - 2 ));
                     i = j;
-                }
-                if (cmd.find('/') > 1000)
-                {
-                    cout << "Error: not enough arguments or arguments inputted incorrectly. " << endl;
-                    break;
                 }
                 for (unsigned k = j; k < boundary; ++k) 
                 {

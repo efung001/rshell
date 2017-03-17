@@ -74,13 +74,8 @@ void rshell::run()
             {
                 if (i  != j)
                 {
-                    createCommands(input.substr(i, j - i - 2 ));
+                    createCommands(input.substr(i, j - i - 2));
                     i = j;
-                }
-                if(input.find('/') > 1000)
-                {
-                    cout << "Error: not enough arguments or arguments inputted incorrectly" << endl;
-                    break;
                 }
                 for (unsigned k = j; k < input.size(); ++k) 
                 {
