@@ -1,7 +1,7 @@
 # RShell
 
 
- by Edmund Fung and Justin Liu
+ by Edmund Fund and Justin Liu
 
 This program takes a user input as an individual command that will be executed through usr/bin.
 To achieve this, the program takes the user input and parses the input, separating commands and connectors. Once it has initialized its
@@ -33,3 +33,8 @@ set by the connectors.
 ###Bugs with Commented Commands:
 -when calling an existing function and having a commented argument provided to the function, the function will take in the commented command as its parameter when it's not supposed to
 
+###Bugs with Input/Output Redirection and Piping:
+-when calling multiple input/output redirection together with pipes, the program would crash
+-cannot handle output redirection
+-does not work with parantheses aka precendence operators
+-does not work with test
